@@ -32,7 +32,10 @@
       };
       
       system.defaults = {
-        dock.autohide = true;
+        dock.autohide = false;
+        menuExtraClock.Show24Hour = true;
+        dock.orientation = "right";
+        dock.magnification = true;
       };
 
       # Auto upgrade nix package and the daemon service.
@@ -52,6 +55,8 @@
       # Used for backwards compatibility, please read the changelog before changing.
       # $ darwin-rebuild changelog
       system.stateVersion = 5;
+      system.keyboard.enableKeyMapping = true;
+      system.keyboard.remapCapsLockToControl = true;
 
       # The platform the configuration will be used on.
       nixpkgs.hostPlatform = "aarch64-darwin";
