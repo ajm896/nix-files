@@ -26,14 +26,14 @@
         masApps = {
           "Bear" = 1091189122;
         };
-        #onActivation.cleanup = "zap";
-        #onActivation.autoUpdate = true;
-        #onActivation.upgrade = true;
+        onActivation.cleanup = "zap";
+        onActivation.autoUpdate = true;
+        onActivation.upgrade = true;
       };
       
-      #system.defaults = {
-       # dock.autohide = true;
-      #};
+      system.defaults = {
+        dock.autohide = true;
+      };
 
       # Auto upgrade nix package and the daemon service.
       services.nix-daemon.enable = true;
