@@ -65,7 +65,7 @@
   {
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#FHGCPGHF7G-402
-    darwinConfigurations."FHGCPGHF7G-402" = nix-darwin.lib.darwinSystem {
+    darwinConfigurations."work" = nix-darwin.lib.darwinSystem {
       modules = [ 
         configuration
         nix-homebrew.darwinModules.nix-homebrew{
@@ -79,6 +79,6 @@
     };
 
     # Expose the package set, including overlays, for convenience.
-    darwinPackages = self.darwinConfigurations."FHGCPGHF7G-402".pkgs;
+    darwinPackages = self.darwinConfigurations."work".pkgs;
   };
 }
