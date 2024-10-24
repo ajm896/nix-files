@@ -71,6 +71,12 @@
     EDITOR = "nvim";
   };
 
+  programs.git = {
+  	enable = true;
+	userName = "AJ Morris";
+	userEmail = "amorris@aljomo.com";
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
