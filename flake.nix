@@ -15,8 +15,16 @@
       # $ nix-env -qaP | grep wget
       environment.systemPackages =
         [ pkgs.neovim
+	  pkgs.ripgrep
+	  pkgs.tmux
+	  pkgs.alacritty
+	  pkgs.zsh-completions
+	  pkgs.fzf
+	  pkgs.zoxide
+	  pkgs._1password
         ];
-      homebrew = {
+	nixpkgs.config.allowUnfree = true;
+	homebrew = {
         enable = true;
         brews = [
           "mas"
@@ -24,7 +32,6 @@
         casks = [
         ];
         masApps = {
-          "Bear" = 1091189122;
         };
         onActivation.cleanup = "zap";
         onActivation.autoUpdate = true;
@@ -37,6 +44,8 @@
         dock.orientation = "right";
         dock.magnification = true;
       };
+
+	 
 
       # Auto upgrade nix package and the daemon service.
       services.nix-daemon.enable = true;
