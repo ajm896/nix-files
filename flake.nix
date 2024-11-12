@@ -13,12 +13,12 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
   
-  outputs = { self, nix-darwin, home-manager, ... }@inputs:
+  outputs = { self, nix-darwin, home-manager, ... } @ inputs:
     {
       # Build darwin flake using:
-      # $ darwin-rebuild build --flake .#FHGCPGHF7G-402
-      darwinConfigurations."work" = nix-darwin.lib.darwinSystem {
-        specialArgs = inherit inputs;
+      # $ darwin-rebuild build --flake ./nix-files
+      darwinConfigurations."FHGCPGHF7G" = nix-darwin.lib.darwinSystem {
+        specialArgs = {inherit inputs self;};
         modules = [ 
          ./work-config.nix
 	        home-manager.darwinModules.home-manager {

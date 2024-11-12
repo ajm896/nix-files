@@ -1,14 +1,16 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: {
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
+  networking.hostName = "FHGCPGHF7G";
 	environment.systemPackages = with pkgs;
 		[ 
-			pkgs.ripgrep
-			pkgs.alacritty
-			pkgs.zsh-completions
-			pkgs.fzf
-			pkgs.zoxide
-			pkgs._1password
+			ripgrep
+			alacritty
+			zsh-completions
+			fzf
+			zoxide
+			_1password
+      emacs
 		];
 	nixpkgs.config.allowUnfree = true;
   
@@ -21,7 +23,10 @@
 	};
   
   # Auto upgrade nix package and the daemon service.
-	services.nix-daemon.enable = true;
+	services={
+    nix-daemon.enable = true;
+    emacs.enable = true;
+  };
   # nix.package = pkgs.nix;
   
   # Necessary for using flakes on this system.
@@ -31,7 +36,7 @@
 	programs.zsh.enable = true;
   
   # Set Git commit hash for darwin-version.
-	system.configurationRevision = self.rev or self.dirtyRev or null;
+	system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
   
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
