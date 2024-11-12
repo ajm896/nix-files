@@ -7,13 +7,13 @@
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     
-    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+    #nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
     
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
   
-  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, home-manager }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager }:
     let
       configuration = { pkgs, ... }: {
         # List packages installed in system profile. To search by name, run:
@@ -36,8 +36,6 @@
 		      dock.magnification = true;
 		      finder.FXPreferredViewStyle = "clmv";
 	      };
-        
-        
         
         # Auto upgrade nix package and the daemon service.
 	      services.nix-daemon.enable = true;
@@ -79,6 +77,6 @@
         };
         
         # Expose the package set, including overlays, for convenience.
-        darwinPackages = self.darwinConfigurations."work".pkgs;
+        # darwinPackages = self.darwinConfigurations."work".pkgs;
       };
 }
