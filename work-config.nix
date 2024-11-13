@@ -11,6 +11,8 @@
 			zoxide
 			_1password
       emacs
+      procps
+      bat
 		];
 	nixpkgs.config.allowUnfree = true;
   

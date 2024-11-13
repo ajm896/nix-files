@@ -17,7 +17,7 @@
     {
       # Build darwin flake using:
       # $ darwin-rebuild build --flake ./nix-files
-      darwinConfigurations."FHGCPGHF7G" = nix-darwin.lib.darwinSystem {
+      darwinConfigurations."work" = nix-darwin.lib.darwinSystem {
         specialArgs = {inherit inputs self;};
         modules = [ 
          ./work-config.nix
