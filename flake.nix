@@ -28,6 +28,18 @@
 	        }
         ];
       };
+
+      darwinConfigurations."home" = nix-darwin.lib.darwinSystem {
+        specialArgs = {inherit inputs self;};
+        modules = [ 
+         ./work-config.nix
+	        home-manager.darwinModules.home-manager {
+		        home-manager.useGlobalPkgs = true;
+		        home-manager.useUserPackages = true;
+		        home-manager.users.amorris = import ./home.nix;
+	        }
+        ];
+      };
       
       # Expose the package set, including overlays, for convenience.
       # darwinPackages = self.darwinConfigurations."work".pkgs;
