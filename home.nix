@@ -6,7 +6,8 @@
 
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
-    home.packages = [
+    home.packages = with pkgs; [
+                  (nerdfonts.override { fonts = ["JetBrainsMono"];})
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -27,6 +28,8 @@
   home.sessionVariables = {
     EDITOR = "emacsclient";
   };
+
+  
 
   programs.git = {
   	enable = true;
