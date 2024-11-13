@@ -11,8 +11,10 @@
 			zoxide
 			_1password
       emacs
-      procps
       bat
+      gnumake
+      cmake
+      libtool
 		];
 	nixpkgs.config.allowUnfree = true;
   
@@ -25,7 +27,7 @@
 	};
   
   # Auto upgrade nix package and the daemon service.
-	services={
+  services={
     nix-daemon.enable = true;
     emacs.enable = true;
   };
