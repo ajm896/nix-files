@@ -15,6 +15,18 @@
       gnumake
       cmake
       libtool
+      xz
+      qemu
+      sshfs
+      wget
+      libusb1
+      utm
+      squashfuse
+      squashfsTools
+      libisoburn
+      tree
+      util-linux
+      #libuuid
 		];
 	nixpkgs.config.allowUnfree = true;
   
@@ -41,7 +53,7 @@
   
   # Set Git commit hash for darwin-version.
 	system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
-  
+  security.pam.enableSudoTouchIdAuth = true;
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
 	system.stateVersion = 5;

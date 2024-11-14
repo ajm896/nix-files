@@ -32,7 +32,7 @@
       darwinConfigurations."home" = nix-darwin.lib.darwinSystem {
         specialArgs = {inherit inputs self;};
         modules = [ 
-         ./work-config.nix
+         ./home-config.nix
 	        home-manager.darwinModules.home-manager {
 		        home-manager.useGlobalPkgs = true;
 		        home-manager.useUserPackages = true;
