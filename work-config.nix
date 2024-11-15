@@ -25,9 +25,9 @@
       squashfsTools
       libisoburn
       tree
-      util-linux
-      #libuuid
-		];
+      kitty
+      glibtool
+  	];
 	nixpkgs.config.allowUnfree = true;
   
 	system.defaults = {
