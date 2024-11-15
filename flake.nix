@@ -20,7 +20,7 @@
       darwinConfigurations."work" = nix-darwin.lib.darwinSystem {
         specialArgs = {inherit inputs self;};
         modules = [ 
-         ./work-config.nix
+         ./hosts/macos/work/config.nix
 	        home-manager.darwinModules.home-manager {
 		        home-manager.useGlobalPkgs = true;
 		        home-manager.useUserPackages = true;
@@ -32,7 +32,7 @@
       darwinConfigurations."home" = nix-darwin.lib.darwinSystem {
         specialArgs = {inherit inputs self;};
         modules = [ 
-         ./home-config.nix
+         ./hosts/macos/home/config.nix
 	        home-manager.darwinModules.home-manager {
 		        home-manager.useGlobalPkgs = true;
 		        home-manager.useUserPackages = true;
